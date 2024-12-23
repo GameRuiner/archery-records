@@ -1,11 +1,11 @@
 export default {
-	title: "Eleventy Base Blog v9",
+	title: "Рекорди України зі стрільби з лука",
 	url: "https://example.com/",
-	language: "en",
-	description: "I am writing about my experiences as a naval navel-gazer.",
+	language: "ua",
+	description: "Дізнайтеся про захоплюючі досягнення та віхи українських лучників",
 	author: {
-		name: "Your Name Here",
-		email: "youremailaddress@example.com",
+		name: "Marko Golovko",
+		email: "markogolovko@proton.me",
 		url: "https://example.com/about-me/"
 	}
 }

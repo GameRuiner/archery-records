@@ -1,0 +1,28 @@
+/* Add borders to the table */
+table {
+    border-collapse: collapse; /* Ensures borders don't double up */
+    width: 100%; /* Makes the table take full width */
+    margin: 20px 0; /* Adds some spacing above and below the table */
+  }
+  
+  /* Add borders to table cells */
+  table, th, td {
+    border: 1px solid #ddd; /* Light gray border */
+  }
+  
+  /* Add padding to cells */
+  th, td {
+    padding: 8px;
+    text-align: left; /* Align text to the left */
+  }
+  
+  /* Add a background color to table headers */
+  th {
+    background-color: #f4f4f4; /* Light gray background */
+    font-weight: bold;
+  }
+  
+  /* Add hover effect on table rows */
+  tr:hover {
+    background-color: #f1f1f1; /* Slightly darker gray when hovered */
+  }

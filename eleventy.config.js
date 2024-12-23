@@ -3,6 +3,8 @@ import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
+import DocxPlugin from "eleventy-plugin-docx";
+import { EleventyRenderPlugin } from "@11ty/eleventy";
 
 import pluginFilters from "./_config/filters.js";
 
@@ -51,23 +53,23 @@ export default async function(eleventyConfig) {
 		type: "atom", // or "rss", "json"
 		outputPath: "/feed/feed.xml",
 		stylesheet: "pretty-atom-feed.xsl",
-		templateData: {
-			eleventyNavigation: {
-				key: "Feed",
-				order: 4
-			}
-		},
+		// templateData: {
+		// 	eleventyNavigation: {
+		// 		key: "Feed",
+		// 		order: 4
+		// 	}
+		// },
 		collection: {
 			name: "posts",
 			limit: 10,
 		},
 		metadata: {
-			language: "en",
-			title: "Blog Title",
-			subtitle: "This is a longer description about your blog.",
+			language: "ua",
+			title: "Рекорди України",
+			subtitle: "Дізнайтеся про захоплюючі досягнення та віхи українських лучників",
 			base: "https://example.com/",
 			author: {
-				name: "Your Name"
+				name: "Marko Golovko"
 			}
 		}
 	});
@@ -96,6 +98,15 @@ export default async function(eleventyConfig) {
 		// by default we use Eleventy’s built-in `slugify` filter:
 		// slugify: eleventyConfig.getFilter("slugify"),
 		// selector: "h1,h2,h3,h4,h5,h6", // default
+	});
+
+	eleventyConfig.addPlugin(DocxPlugin)
+
+	eleventyConfig.addPlugin(EleventyRenderPlugin, {
+        // Layout path for docx files, relative to 'includes' directory
+        layout: 'layouts/docx.njk',
+
+		useGlobalLayout: true,
 	});
 
 	eleventyConfig.addShortcode("currentBuildDate", () => {
