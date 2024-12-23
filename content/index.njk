@@ -4,10 +4,20 @@ const eleventyNavigation = {
 	order: 1
 };
 
-const numberOfLatestPostsToShow = 3;
+const numberOfLatestPostsToShow = 100;
 ---
 
 <h1>Рекорди</h1>
+
+<ul class="categories">
+	<li><a href="50+">50+</a></li>
+	<li><a href="overallrecords">Загальні рекорди</a></li>
+</ul>
+
+
+
+
+
 {# {% set postsCount = collections.posts | length %}
 {% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
 
@@ -19,9 +29,9 @@ const numberOfLatestPostsToShow = 3;
 <p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
 {% endif %} #}
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
+{# {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
 {% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
+{% include "postslist.njk" %} #}
 
 {# List every content page in the project #}
 {#

@@ -26,3 +26,7 @@ table {
   tr:hover {
     background-color: #f1f1f1; /* Slightly darker gray when hovered */
   }
+
+table p {
+    line-height: 1;
+}

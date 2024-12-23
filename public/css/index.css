@@ -273,3 +273,7 @@ header {
 	margin-right: 1em;
 }
 
+.categories {
+	list-style: none;
+}
+
