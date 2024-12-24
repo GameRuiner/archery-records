@@ -30,3 +30,9 @@ table {
 table p {
     line-height: 1;
 }
+
+@media (prefers-color-scheme: dark) {
+    tr:hover {
+        background-color: #1c2938; /* Slightly lighter shade of #15202b */
+    }
+}

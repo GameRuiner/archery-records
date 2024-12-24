@@ -1,0 +1,46 @@
+/* Base styling for the categories list */
+.categories {
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 20px 0; /* Add spacing above and below */
+    display: flex; /* Use flexbox for layout */
+    flex-direction: column; /* Arrange items vertically */
+    gap: 10px; /* Add space between items */
+  }
+  
+  /* Styling for the individual category items */
+  .categories li {
+    padding: 0; /* Add spacing around the text */
+    border-radius: 5px; /* Rounded corners */
+    transition: background-color 0.3s ease, transform 0.2s ease; /* Smooth hover effects */
+  }
+  
+  /* Styling for the links */
+  .categories li a {
+    color: #ffffff; /* Make text white for contrast */
+    text-decoration: none; /* Remove underline */
+    font-size: 1.2rem; /* Slightly larger font for visibility */
+    font-weight: 500; /* Medium font weight for emphasis */
+    width: 100%;
+    display: block;
+    padding: 10px 15px;
+  }
+  
+  /* Hover effect for category items */
+  .categories li:hover {
+    background-color: #f1f1f1; 
+    transform: translateY(-2px); /* Slight lift effect */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add subtle shadow */
+  }
+  
+  /* Focus effect for accessibility */
+  .categories li a:focus {
+    outline: 2px dashed #ffffff; /* Highlight link on focus */
+    outline-offset: 4px; /* Space between link and outline */
+  }
+
+  @media (prefers-color-scheme: dark) {
+    .categories li:hover {
+        background-color: #1c2938; /* Slightly lighter shade of #15202b */
+    }
+}
