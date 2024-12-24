@@ -17,7 +17,6 @@
   
   /* Styling for the links */
   .categories li a {
-    color: #ffffff; /* Make text white for contrast */
     text-decoration: none; /* Remove underline */
     font-size: 1.2rem; /* Slightly larger font for visibility */
     font-weight: 500; /* Medium font weight for emphasis */
