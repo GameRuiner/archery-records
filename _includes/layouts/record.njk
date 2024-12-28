@@ -5,6 +5,19 @@ layout: layouts/base.njk
 {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %}
 {%- css %}{% include "public/css/prism-diff.css" %}{%- endcss %}
 {%- css %}{% include "public/css/tables.css" %}{%- endcss %}
+
+{% if eleventyNavigation %}
+  {% set breadcrumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
+  <ul class="breadcrumbs">
+    {% for item in breadcrumbs %}
+      <li>
+        <a href="{{ item.url }}">{{ item.title }}</a>
+      </li>
+    {% endfor %}
+    <li>{{ title }}</li>
+  </ul>
+{% endif %}
+
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
