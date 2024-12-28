@@ -7,10 +7,6 @@
   .breadcrumbs li {
     display: inline;
   }
-  .breadcrumbs li a {
-    text-decoration: none;
-    color: blue;
-  }
   .breadcrumbs li + li:before {
     content: ">";
     margin: 0 0.5rem;
