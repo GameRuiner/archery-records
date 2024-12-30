@@ -3,6 +3,7 @@ export default {
 	url: "https://example.com/",
 	language: "ua",
 	description: "Дізнайтеся про захоплюючі досягнення та віхи українських лучників",
+	ico: "favicon.ico",
 	author: {
 		name: "Marko Golovko",
 		email: "markogolovko@proton.me",
