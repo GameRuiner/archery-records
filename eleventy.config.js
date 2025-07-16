@@ -1,12 +1,15 @@
 import { IdAttributePlugin, InputPathToUrlTransformPlugin, HtmlBasePlugin } from "@11ty/eleventy";
-import { feedPlugin } from "@11ty/eleventy-plugin-rss";
 import pluginSyntaxHighlight from "@11ty/eleventy-plugin-syntaxhighlight";
 import pluginNavigation from "@11ty/eleventy-navigation";
 import { eleventyImageTransformPlugin } from "@11ty/eleventy-img";
 import DocxPlugin from "eleventy-plugin-docx";
 import { EleventyRenderPlugin } from "@11ty/eleventy";
+import { EleventyI18nPlugin } from "@11ty/eleventy";
+import pluginBundle from "@11ty/eleventy-plugin-bundle";
 
-import pluginFilters from "./_config/filters.js";
+import pluginFilters from "./content/_config/filters.js";
+import plugins from './content/_config/plugins.js';
+import shortcodes from './content/_config/shortcodes.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
@@ -24,22 +27,13 @@ export default async function(eleventyConfig) {
 			"./public/": "/"
 		})
 		.addPassthroughCopy("./content/feed/pretty-atom-feed.xsl");
-
+	eleventyConfig.addPlugin(pluginBundle);
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
 	// Watch content images for the image pipeline.
-	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
-
-	// Per-page bundles, see https://github.com/11ty/eleventy-plugin-bundle
-	// Adds the {% css %} paired shortcode
-	eleventyConfig.addBundle("css", {
-		toFileDirectory: "dist",
-	});
-	// Adds the {% js %} paired shortcode
-	eleventyConfig.addBundle("js", {
-		toFileDirectory: "dist",
-	});
+  	eleventyConfig.addWatchTarget('./content/assets/**/*.{css,js,svg,png,jpeg}');
+  	eleventyConfig.addWatchTarget('./_includes/**/*.{webc}');
 
 	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
@@ -47,7 +41,16 @@ export default async function(eleventyConfig) {
 	});
 	eleventyConfig.addPlugin(pluginNavigation);
 	eleventyConfig.addPlugin(HtmlBasePlugin);
+	eleventyConfig.addPlugin(plugins.jsConfig);
 	eleventyConfig.addPlugin(InputPathToUrlTransformPlugin);
+	eleventyConfig.addPlugin(EleventyI18nPlugin, {
+		defaultLanguage: "ua",
+		filters: {
+			url: "locale_url",
+			links: "locale_links"
+		},
+		errorMode: "strict"
+	});
 
 	// Image optimization: https://www.11ty.dev/docs/plugins/image/#eleventy-transform
 	eleventyConfig.addPlugin(eleventyImageTransformPlugin, {
@@ -84,9 +87,13 @@ export default async function(eleventyConfig) {
 		useGlobalLayout: true,
 	});
 
+	eleventyConfig.addBundle('css', {hoist: true});
+	// eleventyConfig.addPlugin(pluginBundle);
+
 	eleventyConfig.addShortcode("currentBuildDate", () => {
 		return (new Date()).toISOString();
 	});
+	eleventyConfig.addShortcode('svg', shortcodes.svg);
 
 	// Features to make your build faster (when you need them)
 

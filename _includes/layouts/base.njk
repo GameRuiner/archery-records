@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="{{ metadata.language }}">
+<html lang="{{ lang }}">
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,6 +27,9 @@
 		{%- css %}{% include "public/css/index.css" %}{% endcss %}
 		{%- css %}{% include "public/css/categories.css" %}{% endcss %}
 		{%- css %}{% include "public/css/breadcrumbs.css" %}{% endcss %}
+		{%- css %}{% include "public/css/language.css" %}{% endcss %}
+		
+
 		{#- Or you can add from node_modules #}
 		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
 
@@ -46,13 +49,17 @@
 
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
+				<h2 class="visually-hidden">Top level navigation menu test</h2>
 				<ul class="nav">
 				{%- for entry in collections.all | eleventyNavigation %}
 					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
 				{%- endfor %}
 				</ul>
 			</nav>
+
+			<div class="settings | full cluster gutter-s row-1 justify-self-end ontop">
+				{% include "partials/switch-lang.njk" %}
+			</div>
 		</header>
 
 		<main id="skip">
