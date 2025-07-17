@@ -1,9 +1,8 @@
 ---
-lang: "en" 
+lang: en
 eleventyNavigation:
-  key: "Records"
+  key: Records
   order: 1
-numberOfLatestPostsToShow: 100
 ---
 
 <h1>Records</h1>
@@ -14,30 +13,3 @@ numberOfLatestPostsToShow: 100
 	<li><a href="overallrecords">Overall records</a></li>
 	<li><a href="50+">Masters</a></li>
 </ul>
-
-
-
-
-{# {% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
-
-
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="blog.njk">the archive</a>.</p>
-{% endif %} #}
-
-{# {% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %} #}
-
-{# List every content page in the project #}
-{#
-<ul>
-	{%- for entry in collections.all %}
-	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
-	{%- endfor %}
-</ul>
-#}

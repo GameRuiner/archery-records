@@ -1,2 +1,1 @@
-- add ico
-- multilingual support
+- multilingual support (fix 404)

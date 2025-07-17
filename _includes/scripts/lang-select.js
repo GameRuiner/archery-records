@@ -1,4 +1,3 @@
-console.log("script loaded");
 const languageNav = document.querySelector('[data-lang-switcher]');
 const languageNavButton = languageNav.querySelector('button');
 const activeLanguageItem = languageNav.querySelector('a[aria-selected="true"]');
@@ -11,4 +10,3 @@ function toggleNavOpen(event) {
   languageNavButton.setAttribute('aria-expanded', isOpen);
 }
 languageNavButton.addEventListener('click', toggleNavOpen);
-console.log("scirpt loaded")

@@ -3,8 +3,11 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
+		{%- set lang = lang or page.lang or "ua" -%}
+		{%- set title = title or metadata[lang].title %}
+		{%- set description = description or metadata[lang].description %}
+		<title>{{ title }}</title>
+		<meta name="description" content="{{ description }}">
 		<link rel="icon" href="{{metadata.ico}}" type="image/x-icon">
 		<link rel="shortcut icon" href="{{metadata.ico}}" type="image/x-icon">
 		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
@@ -42,20 +45,25 @@
 		{%- js %}{% include "node_modules/@zachleat/heading-anchors/heading-anchors.js" %}{% endjs %}
 	</head>
 	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
 
 		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
-
+			<a href="/" class="home-link">{{ title }}</a>
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
+			{%- set currentLang = lang or "ua" %}
+			{%- set navItems = collections.all | filterByLang(currentLang) | eleventyNavigation %}
 			<nav>
-				<h2 class="visually-hidden">Top level navigation menu test</h2>
 				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
+					{%- for entry in navItems %}
+						<li class="nav-item">
+							<a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>
+								{{ entry.title }}
+							</a>
+						</li>
+					{%- endfor %}
 				</ul>
 			</nav>
+
+			{#- Language switcher -#}	
 
 			<div class="settings | full cluster gutter-s row-1 justify-self-end ontop">
 				{% include "partials/switch-lang.njk" %}

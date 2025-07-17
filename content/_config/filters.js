@@ -37,4 +37,8 @@ export default function(eleventyConfig) {
 		return (tags || []).filter(tag => ["all", "posts"].indexOf(tag) === -1);
 	});
 
+	eleventyConfig.addFilter("filterByLang", function (collection, lang) {
+    	return collection.filter(item => item.data.lang === lang);
+  	});
+
 };
