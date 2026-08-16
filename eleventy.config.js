@@ -6,6 +6,8 @@ import DocxPlugin from "eleventy-plugin-docx";
 import { EleventyRenderPlugin } from "@11ty/eleventy";
 import { EleventyI18nPlugin } from "@11ty/eleventy";
 import pluginBundle from "@11ty/eleventy-plugin-bundle";
+import fs from "fs";
+import path from "path";
 
 import pluginFilters from "./content/_config/filters.js";
 import plugins from './content/_config/plugins.js';
@@ -33,8 +35,7 @@ export default async function(eleventyConfig) {
 
 	// Watch content images for the image pipeline.
   	eleventyConfig.addWatchTarget('./content/assets/**/*.{css,js,svg,png,jpeg}');
-  	eleventyConfig.addWatchTarget('./_includes/**/*.{webc}');
-
+		eleventyConfig.addWatchTarget('./_includes/**/*.{webc}');
 	// Official plugins
 	eleventyConfig.addPlugin(pluginSyntaxHighlight, {
 		preAttributes: { tabindex: 0 }
@@ -101,7 +102,68 @@ export default async function(eleventyConfig) {
 	// to emulate the file copy on the dev server. Learn more:
 	// https://www.11ty.dev/docs/copy/#emulate-passthrough-copy-during-serve
 
-	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+   	// eleventyConfig.setServerPassthroughCopyBehavior("passthrough");
+
+	// Dev server: serve localized 404 pages (only in `--serve` / dev mode)
+	if (process.env.ELEVENTY_RUN_MODE === "serve" && typeof eleventyConfig.setServerOptions === "function") {
+		const defaultLanguage = "ua";
+		const outputDir = (config && config.dir && config.dir.output) || "_site";
+
+		eleventyConfig.setServerOptions({
+			onRequest: {
+				"/*": async (context) => {
+					try {
+						let reqPath;
+						if (context?.request && context.request.url) {
+							reqPath = new URL(context.request.url, 'http://localhost').pathname;
+						} else if (typeof context?.url === 'string') {
+							reqPath = new URL(context.url, 'http://localhost').pathname;
+						} else if (context?.url && context.url.pathname) {
+							reqPath = context.url.pathname;
+						}
+
+						if (!reqPath) return;
+						reqPath = decodeURIComponent(reqPath);
+
+						// If the request maps to an existing file, do not intercept.
+						const abs = (p) => path.join(process.cwd(), outputDir, p);
+						const candidates = [reqPath.replace(/^\//, '')];
+						if (reqPath.endsWith('/')) candidates.push(path.join(reqPath.replace(/^\//, ''), 'index.html'));
+						else candidates.push(reqPath.replace(/^\//, '') + '.html');
+
+						for (const p of candidates) {
+							try {
+								const st = await fs.promises.stat(abs(p));
+								if (st.isFile()) return; // allow normal static serve
+							} catch (e) { /* ignore */ }
+						}
+
+						// Determine locale from path prefix; fallback to defaultLanguage
+						const m = reqPath.match(/^\/(en|pl|ua)(?:\/|$)/);
+						const locale = (m && m[1]) || defaultLanguage;
+
+						// Serve localized 404 or root 404
+						const localized404 = abs(path.join(locale, '404.html'));
+						const root404 = abs('404.html');
+						try {
+							const body = await fs.promises.readFile(localized404, 'utf8');
+							return { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body };
+						} catch (e) {
+							try {
+								const body = await fs.promises.readFile(root404, 'utf8');
+								return { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }, body };
+							} catch (e2) {
+								return; // let dev server handle 404 normally
+							}
+						}
+					} catch (err) {
+						return;
+					}
+				}
+			}
+		});
+	}
+
 };
 
 export const config = {
@@ -127,6 +189,8 @@ export const config = {
 		includes: "../_includes",  // default: "_includes" (`input` relative)
 		data: "../_data",          // default: "_data" (`input` relative)
 		output: "_site"
+	
+
 	},
 
 	// -----------------------------------------------------------------
