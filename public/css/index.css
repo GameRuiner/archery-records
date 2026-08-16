@@ -18,12 +18,28 @@
 	--text-color-link-visited: #17050F;
 
 	--syntax-tab-size: 2;
+
+	--color-text: var(--text-color);
+	--color-bg: var(--background-color);
+	--color-bg-accent: var(--color-gray-20);
+
+	--color-active: #082840;
+  	--color-on-active: #fff;
+
+	--space-3xs: 0.125rem;
+	--space-2xs: 0.25rem;
+	--space-xs:  0.5rem;
+	--space-s:   0.75rem;
+	--space-m:   1rem;
+	--space-l:   1.5rem;
+	--space-xl:  2rem;
+	--space-2xl: 3rem;
 }
 
 @media (prefers-color-scheme: dark) {
 	:root {
-		--color-gray-20: #e0e0e0;
-		--color-gray-50: #C0C0C0;
+		--color-gray-20: #253340;  
+		--color-gray-50: #4a5a68; 
 		--color-gray-90: #dad8d8;
 
 		/* --text-color is assigned to --color-gray-_ above */
@@ -32,6 +48,9 @@
 		--text-color-link-visited: #a6a6f8;
 
 		--background-color: #15202b;
+
+		--color-active: #1493fb;
+    	--color-on-active: #0b1520;
 	}
 }
 

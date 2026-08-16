@@ -1,0 +1,43 @@
+/* Layout utilities */
+.relative { position: relative; }
+.absolute { position: absolute; }
+.self-start { align-self: flex-start; }
+ 
+.icon-center {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+}
+ 
+/* Spacing utilities: margin/padding, block/inline, logical properties */
+.my-s  { margin-block: var(--space-s); }
+.my-l  { margin-block: var(--space-l); }
+ 
+.mx-s  { margin-inline: var(--space-s); }
+.mx-l  { margin-inline: var(--space-l); }
+ 
+.ms-xs { margin-inline-start: var(--space-xs); }
+.ms-s  { margin-inline-start: var(--space-s); }
+.ms-l  { margin-inline-start: var(--space-l); }
+ 
+.me-xs { margin-inline-end: var(--space-xs); }
+.me-s  { margin-inline-end: var(--space-s); }
+.me-l  { margin-inline-end: var(--space-l); }
+ 
+.p-xs  { padding: var(--space-xs); }
+.p-s   { padding: var(--space-s); }
+.p-l   { padding: var(--space-l); }
+ 
+/* Button reset, used by .language-nav-button and similar icon buttons */
+.button {
+	appearance: none;
+	background: none;
+	border: none;
+	font: inherit;
+	color: inherit;
+	cursor: pointer;
+	text-decoration: none;
+	display: inline-flex;
+	align-items: center;
+}
+ 

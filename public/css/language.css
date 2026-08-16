@@ -47,16 +47,16 @@ is-land:not(:defined) .language-select {
 
 [aria-expanded='true'] + .language-items [aria-selected='true'] {
   background: var(--color-active);
-  color: var(--color-dark);
+  color: var(--color-on-active);
 }
 
 [aria-expanded='true'] + .language-items [aria-selected='true']:hover {
   background: var(--color-active);
-  background: color-mix(in oklab, var(--color-active) 95%, var(--color-dark));
-  color: var(--color-dark);
+  background: color-mix(in oklab, var(--color-active) 95%, var(--color-on-active));
+  color: var(--color-on-active);
 }
 
-@media screen(md) {
+@media (min-width: 48em) {
   .language-items {
     inline-size: calc(var(--space-2xl) * 2);
   }
@@ -64,4 +64,48 @@ is-land:not(:defined) .language-select {
   [aria-expanded='true'] + .language-items a {
     block-size: var(--space-xl);
   }
+}
+
+.language-nav-button {
+  background: var(--color-bg);
+  color: var(--color-text);
+  border: none;
+}
+
+.language-items,
+.language-items li {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.language-items a {
+  text-decoration: none;
+  color: var(--color-text);
+}
+
+/* keep the rest of your existing rules below, unchanged */
+.language-items {
+  position: absolute;
+  margin-block-start: 0;
+  inset-inline-end: var(--space-xs);
+  inset-block-start: var(--space-2xl);
+  visibility: hidden;
+  inline-size: calc(var(--space-2xl) * 2);
+}
+
+[aria-expanded='true'] + .language-items {
+  visibility: visible;
+}
+
+[aria-expanded='true'] + .language-items a {
+  justify-content: center;
+  margin-block-start: -3px;
+  transform-origin: right center;
+  background-color: var(--color-bg);
+  border: 2px solid var(--color-text);
+  display: grid;
+  block-size: var(--space-xl);
+  translate: calc(var(--offset) * 5px) 0;
+  rotate: calc(-0.01turn * var(--offset) + 0.02turn);
 }
