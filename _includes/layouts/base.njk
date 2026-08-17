@@ -48,9 +48,10 @@
 	<body>
 
 		<header>
-			<a href="/" class="home-link">{{ title }}</a>
+			{%- set currentLang = lang or page.lang or "ua" -%}
+			{%- set homeUrl = "/" + currentLang + "/" -%}
+			<a href="{{ homeUrl }}" class="home-link">{{ title }}</a>
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			{%- set currentLang = lang or "ua" %}
 			{%- set navItems = collections.all | filterByLang(currentLang) | eleventyNavigation %}
 			<nav>
 				<ul class="nav">
