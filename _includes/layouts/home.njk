@@ -3,12 +3,15 @@ layout: layouts/base.njk
 ---
 
 {% if eleventyNavigation %}
+  {% set currentLang = lang or page.lang or "ua" %}
   {% set breadcrumbs = collections.all | eleventyNavigationBreadcrumb(eleventyNavigation.key) %}
   <ul class="breadcrumbs">
     {% for item in breadcrumbs %}
-      <li>
-        <a href="{{ item.url }}">{{ item.title }}</a>
-      </li>
+      {% if item.url.indexOf("/" + currentLang + "/") == 0 %}
+        <li>
+          <a href="{{ item.url }}">{{ item.title }}</a>
+        </li>
+      {% endif %}
     {% endfor %}
     <li>{{ title }}</li>
   </ul>

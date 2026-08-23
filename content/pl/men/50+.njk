@@ -1,17 +1,19 @@
 ---
-title: Чоловіки
+title: Mężczyźni
 translationKey: men-50-plus
+layout: layouts/record.njk
 eleventyNavigation:
-  key: Чоловіки 50+
+  key: Mężczyźni 50+
   parent: 50+
 ---
 
-<h2>Індивідуальні</h2>
+<h2>Indywidualne</h2>
 {% set category = "masters50" %}
 {% set format = "outdoor" %}
 {% set team = false %}
 {% include "partials/records.njk" %}
 
-<h2>Командні</h2>
+<h2>Drużynowe</h2>
+{% set category = "masters50" %}
 {% set team = true %}
 {% include "partials/records.njk" %}

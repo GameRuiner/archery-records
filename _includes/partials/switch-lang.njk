@@ -12,7 +12,8 @@
     </button>
 
     <ul id="languagenav" class="language-items" role="list">
-      {% for lang, details in translations %}
+      {% for lang in ["ua", "en", "pl"] %}
+        {% set details = translations[lang] %}
         {%
           set
           translatedUrl = "/" + lang + "/"

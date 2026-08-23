@@ -38,7 +38,52 @@ export default function(eleventyConfig) {
 	});
 
 	eleventyConfig.addFilter("filterByLang", function (collection, lang) {
-    	return collection.filter(item => item.data.lang === lang);
+    	return collection.filter(item => item.data.page?.lang === lang);
   	});
+
+	eleventyConfig.addFilter("recordsFor", function (collection, category, format, team) {
+		const selected = (collection || []).filter(record =>
+			record.category === category &&
+			record.format === format &&
+			(team === undefined || (team ? record.team_size > 1 : record.team_size === 1))
+		);
+		const highest = new Map();
+		for (const record of selected) {
+			const key = `${record.scope}:${record.discipline_key}:${record.variant_key || ""}`;
+			const current = highest.get(key);
+			if (!current || record.result_score > current.result_score) highest.set(key, record);
+		}
+		return selected.filter(record => highest.get(`${record.scope}:${record.discipline_key}:${record.variant_key || ""}`) === record);
+	});
+
+	eleventyConfig.addFilter("recordsForScope", function (collection, scope) {
+		return (collection || []).filter(record => record.scope === scope);
+	});
+
+	eleventyConfig.addFilter("recordGroups", function (collection) {
+		return [...new Set((collection || []).map(record => record.variant_key || ""))];
+	});
+
+	eleventyConfig.addFilter("recordsForGroup", function (collection, group) {
+		return (collection || []).filter(record => (record.variant_key || "") === group);
+	});
+
+	eleventyConfig.addFilter("footnoteMarker", function (collection, group) {
+		if (!group) return "";
+		const groups = [...new Set((collection || [])
+			.map(record => record.variant_key)
+			.filter(Boolean))];
+		const position = groups.indexOf(group) + 1;
+		return position > 0 ? "*".repeat(position) : "";
+	});
+
+	eleventyConfig.addFilter("clubNames", function (participants, locale) {
+		const names = (participants || []).map(participant => {
+			if (locale === "en") return participant.club_name_en || participant.club_name;
+			if (locale === "pl") return participant.club_name_pl || participant.club_name;
+			return participant.club_name;
+		}).filter(Boolean);
+		return [...new Set(names)];
+	});
 
 };

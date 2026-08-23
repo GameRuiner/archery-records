@@ -1,0 +1,60 @@
+{% set locale = lang or page.lang or "ua" %}
+{% set labels = translations.recordLabels.headers[locale] or translations.recordLabels.headers.ua %}
+{% set scopeLabels = translations.recordLabels.scopes[locale] or translations.recordLabels.scopes.ua %}
+{% set scopes = ["regional", "national", "world"] %}
+
+{% set allSelectedRecords = records | recordsFor(category, format, team) %}
+{% if allSelectedRecords.length == 0 %}
+  <p>{{ labels.empty }}</p>
+{% else %}
+  {% for scope in scopes %}
+    {% set selectedRecords = allSelectedRecords | recordsForScope(scope) %}
+    {% if selectedRecords.length > 0 %}
+      <h3>{{ scopeLabels[scope] }}</h3>
+      {% for group in selectedRecords | recordGroups %}
+      {% set groupedRecords = selectedRecords | recordsForGroup(group) %}
+      {% set marker = selectedRecords | footnoteMarker(group) %}
+      <table class="records-table">
+        <thead>
+          <tr>
+            <th>{{ labels.discipline }}</th>
+            <th>{{ labels.athletes }}</th>
+            <th>{{ labels.club }}</th>
+            <th>{{ labels.competition }}</th>
+            <th>{{ labels.date }}</th>
+            <th class="record-result">{{ labels.result }}</th>
+          </tr>
+        </thead>
+        <tbody>
+    {% for record in groupedRecords %}
+          <tr>
+            <td>{{ translations.recordLabels.disciplines[record.discipline_key][locale] or record.discipline_key }}{% if loop.first %}{{ marker }}{% endif %}</td>
+            <td>
+              {% for participant in record.participants %}
+                {% if locale == "en" %}{{ participant.athlete_name_latin }}{% elif locale == "pl" %}{{ participant.athlete_name_latin }}{% else %}{{ participant.athlete_name }}{% endif %}{% if participant.leg_scores %} <small>({{ participant.leg_scores }})</small>{% endif %}{% if not loop.last %}<br>{% endif %}
+              {% endfor %}
+            </td>
+            <td>
+              {% for club in record.participants | clubNames(locale) %}
+                {{ club }}{% if not loop.last %}<br>{% endif %}
+              {% endfor %}
+            </td>
+            <td>
+              {% if locale == "en" %}{{ record.competition_label_en }}{% elif locale == "pl" %}{{ record.competition_label_pl }}{% else %}{{ record.competition_label }}{% endif %}
+              {% if locale == "en" and record.city_name_en %}<br>{{ record.city_name_en }}{% elif locale == "pl" and record.city_name_pl %}<br>{{ record.city_name_pl }}{% elif record.city_name %}<br>{{ record.city_name }}{% endif %}
+            </td>
+            <td>{{ record.date_raw or "" }}</td>
+            <td class="record-result">{{ record.result_score }}</td>
+          </tr>
+    {% endfor %}
+        </tbody>
+      </table>
+      {% for record in groupedRecords %}
+        {% if record.notes[locale] %}
+          <p class="record-note">{{ marker }} {{ record.notes[locale] }}</p>
+        {% endif %}
+      {% endfor %}
+      {% endfor %}
+    {% endif %}
+  {% endfor %}
+{% endif %}

@@ -1,0 +1,18 @@
+export default [
+  { key: 'team_elim_m3x4', team_size: 3 },
+  { key: 'team_elim_m3x2', team_size: 3 },
+  { key: 'finals_18m_24', team_size: 3 },
+  { key: 'individual_fita_1440_m1', team_size: 1 },
+  { key: 'individual_70m', team_size: 1 },
+  { key: 'individual_60m', team_size: 1 },
+  { key: 'individual_50m', team_size: 1 },
+  { key: 'individual_90m', team_size: 1 },
+  { key: 'individual_30m', team_size: 1 },
+  { key: 'team_elim_50m', team_size: 3 },
+  { key: 'team_match_50m_24', team_size: 3 },
+  { key: 'team_elim_2x50m', team_size: 2 },
+  { key: 'team_match_50m_24_2', team_size: 2 },
+  { key: 'finals_50m_16', team_size: 2 },
+  { key: 'finals_70m_16', team_size: 2 },
+  { key: 'team_elim_m1_2', team_size: 2 },
+];

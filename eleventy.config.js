@@ -12,9 +12,12 @@ import path from "path";
 import pluginFilters from "./content/_config/filters.js";
 import plugins from './content/_config/plugins.js';
 import shortcodes from './content/_config/shortcodes.js';
+import records from './db/records.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
+	eleventyConfig.addGlobalData("records", records());
+
 	// Drafts, see also _data/eleventyDataSchema.js
 	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {
 		if(data.draft && process.env.ELEVENTY_RUN_MODE === "build") {

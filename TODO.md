@@ -1,0 +1,2 @@
+- indoor/outdoor split
+- team/individual split

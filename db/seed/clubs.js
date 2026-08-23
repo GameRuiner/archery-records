@@ -1,0 +1,16 @@
+export default [
+  { key: 'kharkivska', name: 'Харківська', name_en: 'Kharkiv', name_pl: 'Charków', city: 'kharkiv' },
+  { key: 'ukraine', name: 'Україна', name_en: 'Ukraine', name_pl: 'Ukraina' },
+  { key: 'dynamo', name: 'Динамо', name_en: 'Dynamo', name_pl: 'Dynamo' },
+  { key: 'fslho', name: 'ФСЛХО', name_en: 'FSLHO', name_pl: 'FSLHO' },
+  { key: 'sb_kyiv', name: 'Сб, Київ', name_en: 'Sb, Kyiv', name_pl: 'Sb, Kijów', city: 'kyiv' },
+  { key: 'ukraine_kyiv', name: '«Україна», Київ', name_en: 'Ukraine, Kyiv', name_pl: 'Ukraina, Kijów', city: 'kyiv' },
+  { key: 'dynamo_odeska', name: 'Динамо, Одеська', name_en: 'Dynamo, Odesa', name_pl: 'Dynamo, Odessa', city: 'odesa' },
+  { key: 'dynamo_kharkiv', name: 'Динамо, Харків', name_en: 'Dynamo, Kharkiv', name_pl: 'Dynamo, Charków', city: 'kharkiv' },
+  { key: 'lithuania', name: 'Литва', name_en: 'Lithuania', name_pl: 'Litwa', city: 'lithuania' },
+  { key: 'tshvsm', name: 'ЦШВСМ', name_en: 'Central School of Higher Sports Mastery', name_pl: 'Centralna Szkoła Mistrzostwa Sportowego' },
+  { key: 'khnu_karazina', name: 'ХНУ ім. В. Каразіна', name_en: 'V. N. Karazin Kharkiv National University', name_pl: 'Charkowski Uniwersytet Narodowy im. W. Karazina' },
+  { key: 'kdyush_olimp', name: 'КДЮСШ «Олімп»', name_en: 'Olymp Children and Youth Sports School', name_pl: 'Szkoła Sportowa Olimp' },
+  { key: 'sdyushor_elektron', name: 'СДЮШОР «Електрон»', name_en: 'Elektron Children and Youth Olympic Reserve Sports School', name_pl: 'Szkoła Rezerwy Olimpijskiej Elektron' },
+  { key: 'ukraine_kdyush', name: '«Україна», КДЮСШ', name_en: 'Ukraine, Children and Youth Sports School', name_pl: 'Ukraina, szkoła sportowa' },
+];
