@@ -28,6 +28,11 @@ export default {
       en: { discipline: 'Discipline', athletes: 'Athletes', club: 'Club', result: 'Result', competition: 'Competition', date: 'Date', empty: 'No records yet.' },
       pl: { discipline: 'Konkurencja', athletes: 'Zawodnicy', club: 'Klub', result: 'Wynik', competition: 'Zawody', date: 'Data', empty: 'Brak rekordów.' }
     },
+    types: {
+      ua: { individual: 'Індивідуальні', team: 'Командні' },
+      en: { individual: 'Individual', team: 'Teams' },
+      pl: { individual: 'Indywidualne', team: 'Drużynowe' }
+    },
     scopes: {
       ua: { regional: 'Харківська область', national: 'Україна', world: 'Світ' },
       en: { regional: 'Kharkiv region', national: 'Ukraine', world: 'World' },

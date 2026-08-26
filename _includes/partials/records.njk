@@ -1,12 +1,23 @@
 {% set locale = lang or page.lang or "ua" %}
 {% set labels = translations.recordLabels.headers[locale] or translations.recordLabels.headers.ua %}
+{% set typeLabels = translations.recordLabels.types[locale] or translations.recordLabels.types.ua %}
 {% set scopeLabels = translations.recordLabels.scopes[locale] or translations.recordLabels.scopes.ua %}
 {% set scopes = ["regional", "national", "world"] %}
+{% set teamModes = [false, true] %}
+{% if category == "mixed" %}
+  {% set teamModes = [true] %}
+{% endif %}
 
-{% set allSelectedRecords = records | recordsFor(category, format, team) %}
-{% if allSelectedRecords.length == 0 %}
-  <p>{{ labels.empty }}</p>
-{% else %}
+{% for teamMode in teamModes %}
+  {% set allSelectedRecords = records | recordsFor(category, format, teamMode) %}
+  {% if allSelectedRecords.length > 0 %}
+  {% if category != "mixed" %}
+    {% if teamMode %}
+      <h2>{{ typeLabels.team }}</h2>
+    {% else %}
+      <h2>{{ typeLabels.individual }}</h2>
+    {% endif %}
+  {% endif %}
   {% for scope in scopes %}
     {% set selectedRecords = allSelectedRecords | recordsForScope(scope) %}
     {% if selectedRecords.length > 0 %}
@@ -57,4 +68,5 @@
       {% endfor %}
     {% endif %}
   {% endfor %}
-{% endif %}
+  {% endif %}
+{% endfor %}
