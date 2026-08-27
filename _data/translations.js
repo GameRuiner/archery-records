@@ -33,6 +33,11 @@ export default {
       en: { individual: 'Individual', team: 'Teams' },
       pl: { individual: 'Indywidualne', team: 'Drużynowe' }
     },
+    formats: {
+      ua: { indoor: 'У приміщенні', outdoor: 'Просто неба' },
+      en: { indoor: 'Indoor', outdoor: 'Outdoor' },
+      pl: { indoor: 'Halowe', outdoor: 'Outdoor' }
+    },
     scopes: {
       ua: { regional: 'Харківська область', national: 'Україна', world: 'Світ' },
       en: { regional: 'Kharkiv region', national: 'Ukraine', world: 'World' },

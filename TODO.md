@@ -1,3 +1,3 @@
-- indoor/outdoor split
 - add record history (plus button to show/hide)
 - why we change name in home button?
+- remove old files like blog, tag

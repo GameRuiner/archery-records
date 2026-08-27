@@ -118,7 +118,7 @@ a[href] {
 	color: var(--text-color-link);
 }
 a[href]:visited {
-	color: var(--text-color-link-visited);
+	color: var(--text-color-link);
 }
 a[href]:hover,
 a[href]:active {
@@ -219,6 +219,9 @@ header {
 }
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
+}
+.nav a[href]:visited {
+	color: var(--text-color-link);
 }
 .nav a[href][aria-current="page"] {
 	text-decoration: underline;

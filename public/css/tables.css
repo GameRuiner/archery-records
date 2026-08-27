@@ -1,3 +1,36 @@
+.format-switcher {
+  display: inline-flex;
+  gap: 0.15rem;
+  margin-block: var(--space-s, 1rem);
+  padding: 0.2rem;
+  border: 1px solid var(--color-gray-50);
+  border-radius: 0.35rem;
+  background: var(--color-gray-20);
+}
+
+.format-switcher a:link,
+.format-switcher a:visited {
+  padding: 0.45rem 0.75rem;
+  border-radius: 0.2rem;
+  color: var(--text-color) !important;
+  font-size: 0.95rem;
+  line-height: 1.2;
+  text-decoration: none;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.format-switcher a:hover,
+.format-switcher a:focus-visible {
+  background: var(--background-color);
+  color: var(--text-color-link) !important;
+}
+
+.format-switcher a[aria-current="page"],
+.format-switcher a[aria-current="page"]:visited {
+  background: var(--color-active);
+  color: var(--color-on-active) !important;
+}
+
 /* Add borders to the table */
 table {
     border-collapse: collapse; /* Ensures borders don't double up */

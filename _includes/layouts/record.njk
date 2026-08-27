@@ -19,6 +19,22 @@ layout: layouts/base.njk
   </ul>
 {% endif %}
 
+{% set formatLabels = translations.recordLabels.formats[lang or page.lang or "ua"] or translations.recordLabels.formats.ua %}
+{% set currentFormat = "outdoor" if page.url.indexOf("/outdoor/") > -1 or (page.url.indexOf("/50+/") > -1 and page.url.indexOf("/indoor/") == -1) else "indoor" %}
+{% set indoorUrl = page.url %}
+{% set outdoorUrl = page.url %}
+{% if page.url.indexOf("/overall/") > -1 %}
+  {% set indoorUrl = page.url | replace("/outdoor/", "/") %}
+  {% set outdoorUrl = page.url | replace("/outdoor/", "/") ~ "outdoor/" %}
+{% else %}
+  {% set indoorUrl = page.url | replace("/indoor/", "/") ~ "indoor/" %}
+  {% set outdoorUrl = page.url | replace("/indoor/", "/") %}
+{% endif %}
+<nav class="format-switcher" aria-label="{{ formatLabels.indoor }} / {{ formatLabels.outdoor }}">
+  <a href="{{ indoorUrl }}"{% if currentFormat == "indoor" %} aria-current="page"{% endif %}>{{ formatLabels.indoor }}</a>
+  <a href="{{ outdoorUrl }}"{% if currentFormat == "outdoor" %} aria-current="page"{% endif %}>{{ formatLabels.outdoor }}</a>
+</nav>
+
 <h1>{{ title }}</h1>
 
 <ul class="post-metadata">
