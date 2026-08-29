@@ -98,12 +98,7 @@ See [agents.md](agents.md) for known quirks and project-specific patterns, inclu
 
 ## Deployment
 
-The site is configured for deployment to:
-
-- **Netlify** — Uses `netlify.toml` config
-- **Vercel** — Uses `vercel.json` config
-
-Both platforms automatically handle locale-specific routing and 404 fallbacks.
+This project is deployed as a static site on Cloudflare Pages / Workers-compatible hosting. The app already handles locale-aware routing and 404 fallbacks in the Eleventy server config for local preview, and the static output is designed to work with a Cloudflare static-hosting setup.
 
 ## Layout Structure
 

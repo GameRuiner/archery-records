@@ -84,28 +84,3 @@ is-land:not(:defined) .language-select {
   color: var(--color-text);
 }
 
-/* keep the rest of your existing rules below, unchanged */
-.language-items {
-  position: absolute;
-  margin-block-start: 0;
-  inset-inline-end: var(--space-xs);
-  inset-block-start: var(--space-2xl);
-  visibility: hidden;
-  inline-size: calc(var(--space-2xl) * 2);
-}
-
-[aria-expanded='true'] + .language-items {
-  visibility: visible;
-}
-
-[aria-expanded='true'] + .language-items a {
-  justify-content: center;
-  margin-block-start: -3px;
-  transform-origin: right center;
-  background-color: var(--color-bg);
-  border: 2px solid var(--color-text);
-  display: grid;
-  block-size: var(--space-xl);
-  translate: calc(var(--offset) * 5px) 0;
-  rotate: calc(-0.01turn * var(--offset) + 0.02turn);
-}
