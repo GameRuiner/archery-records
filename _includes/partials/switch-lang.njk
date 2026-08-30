@@ -24,7 +24,11 @@
         %}
 
         {% for item in collections.all %}
-          {% if translationKey and item.data.translationKey and item.data.translationKey == translationKey and item.data.page.lang == lang %}
+          {% set currentIsIndoor = page.url.indexOf("/indoor/") > -1 or (page.url.indexOf("/overall/") > -1 and page.url.indexOf("/outdoor/") == -1) %}
+          {% set currentIsOutdoor = page.url.indexOf("/outdoor/") > -1 or (page.url.indexOf("/50+/") > -1 and page.url.indexOf("/indoor/") == -1) %}
+          {% set itemIsIndoor = item.url.indexOf("/indoor/") > -1 or (item.url.indexOf("/overall/") > -1 and item.url.indexOf("/outdoor/") == -1) %}
+          {% set itemIsOutdoor = item.url.indexOf("/outdoor/") > -1 or (item.url.indexOf("/50+/") > -1 and item.url.indexOf("/indoor/") == -1) %}
+          {% if translationKey and item.data.translationKey and item.data.translationKey == translationKey and item.data.page.lang == lang and (not currentIsIndoor and not currentIsOutdoor or currentIsIndoor == itemIsIndoor and currentIsOutdoor == itemIsOutdoor) %}
             {% set translatedUrl = item.url %}
           {% endif %}
         {% endfor %}
