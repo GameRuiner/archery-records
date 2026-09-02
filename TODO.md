@@ -1,2 +1,1 @@
 - add record history (plus button to show/hide)
-- why we change name in home button?

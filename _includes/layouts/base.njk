@@ -50,7 +50,7 @@
 		<header>
 			{%- set currentLang = lang or page.lang or "ua" -%}
 			{%- set homeUrl = "/" + currentLang + "/" -%}
-			<a href="{{ homeUrl }}" class="home-link">{{ title }}</a>
+			<a href="{{ homeUrl }}" class="home-link">{{ metadata[currentLang].title }}</a>
 			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
 			{%- set navItems = collections.all | filterByLang(currentLang) | eleventyNavigation %}
 			<nav>
