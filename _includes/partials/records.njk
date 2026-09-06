@@ -34,10 +34,11 @@
             <th>{{ labels.competition }}</th>
             <th>{{ labels.date }}</th>
             <th class="record-result">{{ labels.result }}</th>
+            <th class="record-history-action"><span class="visually-hidden">History</span></th>
           </tr>
         </thead>
-        <tbody>
     {% for record in groupedRecords %}
+        <tbody id="record-group-{{ record.id }}">
           <tr>
             <td>{{ translations.recordLabels.disciplines[record.discipline_key][locale] or record.discipline_key }}{% if loop.first %}{{ marker }}{% endif %}</td>
             <td>
@@ -56,9 +57,36 @@
             </td>
             <td>{{ record.date_raw or "" }}</td>
             <td class="record-result">{{ record.result_score }}</td>
+            <td class="record-history-action">
+              {% if record.previousRecords.length > 0 %}
+                <button type="button" class="record-history-toggle" data-record-history-toggle aria-expanded="false" aria-controls="record-group-{{ record.id }}" data-show-label="{% if locale == "en" %}Show previous records{% elif locale == "pl" %}Pokaż poprzednie rekordy{% else %}Показати попередні рекорди{% endif %}" data-hide-label="{% if locale == "en" %}Hide previous records{% elif locale == "pl" %}Ukryj poprzednie rekordy{% else %}Сховати попередні рекорди{% endif %}" aria-label="{% if locale == "en" %}Show previous records{% elif locale == "pl" %}Pokaż poprzednie rekordy{% else %}Показати попередні рекорди{% endif %}">+</button>
+              {% endif %}
+            </td>
+          </tr>
+    {% for previousRecord in record.previousRecords %}
+          <tr data-record-history-row hidden>
+            <td>{{ translations.recordLabels.disciplines[previousRecord.discipline_key][locale] or previousRecord.discipline_key }}</td>
+            <td>
+              {% for participant in previousRecord.participants %}
+                {% if locale == "en" %}{{ participant.athlete_name_latin }}{% elif locale == "pl" %}{{ participant.athlete_name_latin }}{% else %}{{ participant.athlete_name }}{% endif %}{% if participant.leg_scores %} <small>({{ participant.leg_scores }})</small>{% endif %}{% if not loop.last %}<br>{% endif %}
+              {% endfor %}
+            </td>
+            <td>
+              {% for club in previousRecord.participants | clubNames(locale) %}
+                {{ club }}{% if not loop.last %}<br>{% endif %}
+              {% endfor %}
+            </td>
+            <td>
+              {% if locale == "en" %}{{ previousRecord.competition_label_en }}{% elif locale == "pl" %}{{ previousRecord.competition_label_pl }}{% else %}{{ previousRecord.competition_label }}{% endif %}
+              {% if locale == "en" and previousRecord.city_name_en %}<br>{{ previousRecord.city_name_en }}{% elif locale == "pl" and previousRecord.city_name_pl %}<br>{{ previousRecord.city_name_pl }}{% elif previousRecord.city_name %}<br>{{ previousRecord.city_name }}{% endif %}
+            </td>
+            <td>{{ previousRecord.date_raw or "" }}</td>
+            <td class="record-result">{{ previousRecord.result_score }}</td>
+            <td class="record-history-action"></td>
           </tr>
     {% endfor %}
         </tbody>
+    {% endfor %}
       </table>
       {% for record in groupedRecords %}
         {% if record.notes[locale] %}
@@ -70,3 +98,19 @@
   {% endfor %}
   {% endif %}
 {% endfor %}
+
+<script>
+  document.querySelectorAll("[data-record-history-toggle]").forEach((button) => {
+    button.addEventListener("click", () => {
+      const group = button.closest("tbody");
+      const isExpanded = button.getAttribute("aria-expanded") === "true";
+
+      group.querySelectorAll("[data-record-history-row]").forEach((row) => {
+        row.hidden = isExpanded;
+      });
+      button.setAttribute("aria-expanded", String(!isExpanded));
+      button.textContent = isExpanded ? "+" : "-";
+      button.setAttribute("aria-label", isExpanded ? button.dataset.showLabel : button.dataset.hideLabel);
+    });
+  });
+</script>

@@ -47,13 +47,17 @@ export default function(eleventyConfig) {
 			record.format === format &&
 			(team === undefined || (team ? record.team_size > 1 : record.team_size === 1))
 		);
-		const highest = new Map();
+		const grouped = new Map();
 		for (const record of selected) {
 			const key = `${record.scope}:${record.discipline_key}:${record.variant_key || ""}`;
-			const current = highest.get(key);
-			if (!current || record.result_score > current.result_score) highest.set(key, record);
+			const records = grouped.get(key) || [];
+			records.push(record);
+			grouped.set(key, records);
 		}
-		return selected.filter(record => highest.get(`${record.scope}:${record.discipline_key}:${record.variant_key || ""}`) === record);
+		return [...grouped.values()].map(records => {
+			const [current, ...previousRecords] = records.sort((a, b) => b.result_score - a.result_score);
+			return { ...current, previousRecords };
+		});
 	});
 
 	eleventyConfig.addFilter("recordsForScope", function (collection, scope) {
