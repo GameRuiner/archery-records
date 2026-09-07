@@ -59,6 +59,7 @@ table {
       width: 2.5rem;
       padding-inline: 0.25rem;
       text-align: center;
+      border: none;
     }
 
     .record-history-toggle {
