@@ -24,6 +24,7 @@
       <h3>{{ scopeLabels[scope] }}</h3>
       {% for group in selectedRecords | recordGroups %}
       {% set groupedRecords = selectedRecords | recordsForGroup(group) %}
+      {% set hasHistory = groupedRecords | hasRecordHistory %}
       {% set marker = selectedRecords | footnoteMarker(group) %}
       <table class="records-table">
         <thead>
@@ -34,7 +35,7 @@
             <th>{{ labels.competition }}</th>
             <th>{{ labels.date }}</th>
             <th class="record-result">{{ labels.result }}</th>
-            <th class="record-history-action"><span class="visually-hidden">History</span></th>
+            {% if hasHistory %}<th class="record-history-action"><span class="visually-hidden">History</span></th>{% endif %}
           </tr>
         </thead>
     {% for record in groupedRecords %}
@@ -57,11 +58,11 @@
             </td>
             <td>{{ record.date_raw or "" }}</td>
             <td class="record-result">{{ record.result_score }}</td>
-            <td class="record-history-action">
+            {% if hasHistory %}<td class="record-history-action">
               {% if record.previousRecords.length > 0 %}
                 <button type="button" class="record-history-toggle" data-record-history-toggle aria-expanded="false" aria-controls="record-group-{{ record.id }}" data-show-label="{% if locale == "en" %}Show previous records{% elif locale == "pl" %}Pokaż poprzednie rekordy{% else %}Показати попередні рекорди{% endif %}" data-hide-label="{% if locale == "en" %}Hide previous records{% elif locale == "pl" %}Ukryj poprzednie rekordy{% else %}Сховати попередні рекорди{% endif %}" aria-label="{% if locale == "en" %}Show previous records{% elif locale == "pl" %}Pokaż poprzednie rekordy{% else %}Показати попередні рекорди{% endif %}">+</button>
               {% endif %}
-            </td>
+            </td>{% endif %}
           </tr>
     {% for previousRecord in record.previousRecords %}
           <tr data-record-history-row hidden>
@@ -82,7 +83,7 @@
             </td>
             <td>{{ previousRecord.date_raw or "" }}</td>
             <td class="record-result">{{ previousRecord.result_score }}</td>
-            <td class="record-history-action"></td>
+            {% if hasHistory %}<td class="record-history-action"></td>{% endif %}
           </tr>
     {% endfor %}
         </tbody>

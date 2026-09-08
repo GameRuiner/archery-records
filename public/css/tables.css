@@ -56,13 +56,17 @@ table {
     }
 
     .record-history-action {
-      width: 2.5rem;
-      padding-inline: 0.25rem;
+      width: 2.75rem;
+      min-width: 2.75rem;
+      padding: 0.25rem;
       text-align: center;
-      border: none;
+      vertical-align: middle;
     }
 
     .record-history-toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       width: 1.75rem;
       height: 1.75rem;
       padding: 0;
@@ -70,6 +74,7 @@ table {
       border-radius: 0.2rem;
       background: transparent;
       color: var(--text-color-link);
+      font: inherit;
       font-size: 1.2rem;
       line-height: 1;
       cursor: pointer;

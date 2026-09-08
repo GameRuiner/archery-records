@@ -72,6 +72,10 @@ export default function(eleventyConfig) {
 		return (collection || []).filter(record => (record.variant_key || "") === group);
 	});
 
+	eleventyConfig.addFilter("hasRecordHistory", function (collection) {
+		return (collection || []).some(record => (record.previousRecords || []).length > 0);
+	});
+
 	eleventyConfig.addFilter("footnoteMarker", function (collection, group) {
 		if (!group) return "";
 		const groups = [...new Set((collection || [])
