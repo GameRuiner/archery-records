@@ -3,6 +3,13 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<script>
+			(() => {
+				const savedTheme = localStorage.getItem('theme');
+				const theme = savedTheme || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+				document.documentElement.dataset.theme = theme;
+			})();
+		</script>
 		{%- set lang = lang or page.lang or "ua" -%}
 		{%- set title = title or metadata[lang].title %}
 		{%- set description = description or metadata[lang].description %}
@@ -69,6 +76,7 @@
 
 			<div class="settings | full cluster gutter-s row-1 justify-self-end ontop">
 				{% include "partials/switch-lang.njk" %}
+				{% include "partials/theme-toggle.njk" %}
 			</div>
 		</header>
 

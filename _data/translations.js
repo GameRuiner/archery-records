@@ -2,7 +2,8 @@ export default {
   ua: {
     dir: '',
     locale: 'uk_UA',
-    name: 'Українська'
+    name: 'Українська',
+    themeToggle: { light: 'Увімкнути світлу тему', dark: 'Увімкнути темну тему' }
   },
   recordLabels: {
     disciplines: {
@@ -47,11 +48,13 @@ export default {
   en: {
     dir: '',
     locale: 'en_EN',
-    name: 'English'
+    name: 'English',
+    themeToggle: { light: 'Enable light theme', dark: 'Enable dark theme' }
   },
   pl: {
     dir: '',
     locale: 'pl_PL',
-    name: 'Polski'
+    name: 'Polski',
+    themeToggle: { light: 'Włącz jasny motyw', dark: 'Włącz ciemny motyw' }
   }
 }

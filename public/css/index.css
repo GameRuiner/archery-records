@@ -24,7 +24,9 @@
 	--color-bg-accent: var(--color-gray-20);
 
 	--color-active: #082840;
-  	--color-on-active: #fff;
+	--color-on-active: #fff;
+	--color-bg-hover: #f1f1f1;
+	color-scheme: light;
 
 	--space-3xs: 0.125rem;
 	--space-2xs: 0.25rem;
@@ -51,7 +53,36 @@
 
 		--color-active: #1493fb;
     	--color-on-active: #0b1520;
+		--color-bg-hover: #1c2938;
 	}
+}
+
+:root[data-theme="light"] {
+	color-scheme: light;
+	--color-gray-20: #e0e0e0;
+	--color-gray-50: #C0C0C0;
+	--color-gray-90: #333;
+	--text-color-link: #082840;
+	--text-color-link-active: #5f2b48;
+	--text-color-link-visited: #17050F;
+	--background-color: #fff;
+	--color-active: #082840;
+	--color-on-active: #fff;
+	--color-bg-hover: #f1f1f1;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+	--color-gray-20: #253340;
+	--color-gray-50: #4a5a68;
+	--color-gray-90: #dad8d8;
+	--text-color-link: #1493fb;
+	--text-color-link-active: #6969f7;
+	--text-color-link-visited: #a6a6f8;
+	--background-color: #15202b;
+	--color-active: #1493fb;
+	--color-on-active: #0b1520;
+	--color-bg-hover: #1c2938;
 }
 
 
@@ -135,6 +166,31 @@ main :first-child {
 
 header {
 	border-bottom: 1px dashed var(--color-gray-20);
+}
+
+.theme-toggle {
+	background: var(--color-bg);
+	color: var(--color-text);
+	border: none;
+	cursor: pointer;
+	font-size: 1.25rem;
+	line-height: 1;
+}
+
+.settings {
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;
+	gap: var(--space-2xs);
+	white-space: nowrap;
+}
+
+.settings is-land {
+	display: block;
+}
+
+.settings .language-select {
+	margin-inline-end: 0;
 }
 header:after {
 	content: "";
@@ -267,4 +323,3 @@ header {
 .post-metadata time {
 	margin-right: 1em;
 }
-

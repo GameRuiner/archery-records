@@ -1,0 +1,8 @@
+<button type="button" class="theme-toggle icon-center p-xs" data-theme-toggle aria-pressed="false">
+  <span class="theme-toggle-icon" aria-hidden="true">☾</span>
+  <span class="visually-hidden" data-theme-label>{{ translations[page.lang].themeToggle.light }}</span>
+</button>
+
+<script type="module">
+  {% include "scripts/theme-toggle.js" %}
+</script>
