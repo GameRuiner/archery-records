@@ -1,14 +1,24 @@
 .breadcrumbs {
     list-style: none;
     display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
     padding-left: 0;
-    gap: 0.5rem;
+    column-gap: 0;
+    row-gap: var(--space-xs);
   }
   .breadcrumbs li {
-    display: inline;
+    display: flex;
+    min-width: 0;
+    max-inline-size: 100%;
   }
   .breadcrumbs li + li:before {
     content: ">";
+    flex: none;
     margin: 0 0.5rem;
     color: gray;
+  }
+  .breadcrumbs a {
+    min-width: 0;
+    overflow-wrap: break-word;
   }

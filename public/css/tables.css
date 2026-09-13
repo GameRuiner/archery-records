@@ -55,6 +55,10 @@ table {
       white-space: nowrap;
     }
 
+    .record-leg-scores {
+      display: block;
+    }
+
     .record-history-action {
       width: 2.75rem;
       min-width: 2.75rem;
@@ -98,4 +102,114 @@ table {
 
 table p {
     line-height: 1;
+}
+
+/* Keep each athlete's name together. Club and competition text can use the
+   flexible column space instead, so long names do not split across lines. */
+@media (min-width: 44.001rem) {
+  .records-table th:nth-child(2),
+  .records-table td:nth-child(2) {
+    width: 20%;
+    white-space: nowrap;
+  }
+
+  .records-table td:nth-child(3),
+  .records-table td:nth-child(4) {
+    overflow-wrap: anywhere;
+  }
+}
+
+/* A table is easiest to compare on a wide screen. On phones each row becomes
+   a self-contained record card, with the column heading shown beside its value. */
+@media (max-width: 44rem) {
+  .records-table {
+    border: 0;
+    margin-block: var(--space-m);
+  }
+
+  .records-table thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0 0 0 0);
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  .records-table tbody {
+    display: block;
+    margin-block: var(--space-s);
+    border: 1px solid var(--color-gray-50);
+    border-radius: 0.35rem;
+    overflow: hidden;
+  }
+
+  .records-table tr {
+    display: block;
+    padding: var(--space-xs) var(--space-s);
+    border: 0;
+  }
+
+  .records-table tr + tr {
+    border-top: 1px solid var(--color-gray-50);
+  }
+
+  .records-table td {
+    display: block;
+    position: relative;
+    min-height: 2rem;
+    padding: var(--space-xs) 0;
+    padding-inline-start: calc(42% + var(--space-s));
+    border: 0;
+  }
+
+  .records-table td::before {
+    content: attr(data-label);
+    position: absolute;
+    inset-inline-start: 0;
+    top: var(--space-xs);
+    width: 42%;
+    color: var(--text-color);
+    font-weight: 700;
+  }
+
+  .records-table .record-result {
+    color: var(--text-color-link);
+  }
+
+  .records-table .record-history-action {
+    display: flex;
+    justify-content: flex-end;
+    width: auto;
+    min-width: 0;
+    min-height: 0;
+    padding-inline-start: 0;
+  }
+
+  .records-table .record-history-action::before {
+    display: none;
+  }
+
+  .records-table tr[data-record-history-row] {
+    background: var(--color-gray-20);
+  }
+}
+
+/* Some translated labels need two lines on a phone. Stacking the label above
+   its value prevents it from competing for the same horizontal space. */
+@media (max-width: 30rem) {
+  .records-table td {
+    min-height: 0;
+    padding-inline-start: 0;
+  }
+
+  .records-table td::before {
+    position: static;
+    display: block;
+    width: auto;
+    margin-block-end: var(--space-xs);
+  }
 }
