@@ -31,4 +31,5 @@ export default [
   { key: 'kovtun_anna', first_name: 'Анна', surname: 'Ковтун', first_name_latin: 'Anna', surname_latin: 'Kovtun' },
   { key: 'kardash_viktoriia', first_name: 'Вікторія', surname: 'Кардаш', first_name_latin: 'Viktoriia', surname_latin: 'Kardash' },
   { key: 'stepura_yuliia', first_name: 'Юлія', surname: 'Степура', first_name_latin: 'Yuliia', surname_latin: 'Stepura' },
+  { key: 'khomutovska_olha', first_name: 'Ольга', surname: 'Хомутовська', first_name_latin: 'Olha', surname_latin: 'Khomutovska' },
 ];

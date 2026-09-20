@@ -13,6 +13,7 @@ export default [
 	individual('r_national_women50_60m_2012_324', 'individual_60m', 'golden_autumn_2012', 324, 'leshchenko_liudmyla', 'ukraine_kdyush'),
 	individual('r_national_women50_50m_2012_326', 'individual_50m', 'kokota_cup_2012', 326, 'leshchenko_liudmyla', 'ukraine_kdyush'),
 	individual('r_national_women50_30m_2012_346', 'individual_30m', 'kokota_cup_2012', 346, 'leshchenko_liudmyla', 'ukraine_kdyush'),
+	individual('r_national_women_finals_50m_2024_149', 'finals_50m_15', 'ukraine_cup_final_2024', 149, 'khomutovska_olha', 'zhytomyrska'),
 	team('r_national_women_finals_18m_2019_232', 'finals_18m_24', 'ukraine_champ_2019', 232, ['hrabik_oleksandra', 'kovtun_anna', 'shkliar_kseniia'], 'ukraine_kyiv'),
 	team('r_national_women_m3x2_2017_1717', 'team_elim_m3x2', 'ukraine_cup_2017', 1717, ['diakova_viktoriia', 'hrabik_oleksandra', 'shkliar_kseniia'], 'ukraine_kyiv', ['290,289', '273,289', '284,292']),
 	team('r_national_women_finals_18m_2024_233', 'finals_18m_24', 'ukraine_champ_2024', 233, ['kardash_viktoriia', 'stepura_yuliia', 'shkliar_kseniia'], 'ukraine_kyiv'),

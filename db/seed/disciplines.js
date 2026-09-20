@@ -15,4 +15,5 @@ export default [
   { key: 'finals_50m_16', team_size: 2 },
   { key: 'finals_70m_16', team_size: 2 },
   { key: 'team_elim_m1_2', team_size: 2 },
+  { key: 'finals_50m_15', team_size: 1 },
 ];

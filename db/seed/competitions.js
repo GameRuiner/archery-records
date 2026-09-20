@@ -15,4 +15,5 @@ export default [
   { key: 'ukraine_champ_2019', city: 'lviv', label: 'Чемпіонат України', label_en: 'Ukrainian Championship', label_pl: 'Mistrzostwa Ukrainy', date_start: '2019-01-28', date_end: '2019-01-30', date_raw: '28-30.01.2019' },
   { key: 'ukraine_champ_2024', city: 'lviv', label: 'Чемпіонат України', label_en: 'Ukrainian Championship', label_pl: 'Mistrzostwa Ukrainy', date_start: '2024-01-25', date_end: '2024-01-28', date_raw: '25-28.01.2024' },
   { key: 'ukraine_champ_2026', city: 'lviv', label: 'Чемпіонат України', label_en: 'Ukrainian Championship', label_pl: 'Mistrzostwa Ukrainy', date_start: '2026-08-11', date_end: '2026-08-14', date_raw: '11-14.08.2026' },
+  { key: 'ukraine_cup_final_2024', city: 'chernivtsi', label: 'Фінал Кубку України зі стрільби з лука', label_en: 'Ukrainian Archery Cup Final', label_pl: 'Finał Pucharu Ukrainy w łucznictwie', date_start: '2024-10-06', date_end: '2024-10-09', date_raw: '06-09.10.2024' },
 ];

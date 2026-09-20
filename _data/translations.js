@@ -23,6 +23,7 @@ export default {
       ,finals_50m_16: { ua: 'Фінали 50 м (16 стріл)', en: '50 m finals (16 arrows)', pl: 'Finały 50 m (16 strzał)' }
       ,finals_70m_16: { ua: 'Фінали 70 м (16 стріл)', en: '70 m finals (16 arrows)', pl: 'Finały 70 m (16 strzał)' }
       ,team_elim_m1_2: { ua: 'Командний елімінаційний раунд М1', en: 'Team elimination M-1', pl: 'Eliminacje drużynowe M-1' }
+      ,finals_50m_15: { ua: 'Фінали 50 м (15 стріл)', en: '50 m finals (15 arrows)', pl: 'Finały 50 m (15 strzał)' }
     },
     headers: {
       ua: { discipline: 'Вправа', athletes: 'Спортсмени', club: 'Клуб, сп. товариство', result: 'Результат', competition: 'Змагання', date: 'Дата', empty: 'Записів поки немає.' },
