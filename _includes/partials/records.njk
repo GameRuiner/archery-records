@@ -64,6 +64,11 @@
               {% endif %}
             </td>{% endif %}
           </tr>
+    {% if record.previousRecords.length > 0 %}
+          <tr class="record-history-heading" data-record-history-row hidden>
+            <td colspan="7">{% if locale == "en" %}Previous records{% elif locale == "pl" %}Poprzednie rekordy{% else %}Попередні рекорди{% endif %}</td>
+          </tr>
+    {% endif %}
     {% for previousRecord in record.previousRecords %}
           <tr data-record-history-row hidden>
             <td data-label="{{ labels.discipline }}">{{ translations.recordLabels.disciplines[previousRecord.discipline_key][locale] or previousRecord.discipline_key }}</td>

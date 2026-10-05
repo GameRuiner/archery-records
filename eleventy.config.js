@@ -16,7 +16,7 @@ import records from './db/records.js';
 
 /** @param {import("@11ty/eleventy").UserConfig} eleventyConfig */
 export default async function(eleventyConfig) {
-	eleventyConfig.addGlobalData("records", records());
+	eleventyConfig.addGlobalData("records", records);
 
 	// Drafts, see also _data/eleventyDataSchema.js
 	eleventyConfig.addPreprocessor("drafts", "*", (data, content) => {

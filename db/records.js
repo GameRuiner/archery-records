@@ -21,7 +21,7 @@ export default function () {
                c.city AS competition_city, c.label AS competition_label,
                c.label_en AS competition_label_en, c.label_pl AS competition_label_pl,
               city.name AS city_name, city.name_en AS city_name_en, city.name_pl AS city_name_pl,
-           c.date_start, c.date_end, c.date_raw
+           c.date_start, c.date_end, c.date_raw, c.source_url AS competition_source_url
     FROM records r
     JOIN disciplines d ON d.id = r.discipline_id
     LEFT JOIN competitions c ON c.id = r.competition_id

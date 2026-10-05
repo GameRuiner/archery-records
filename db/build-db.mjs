@@ -56,7 +56,7 @@ db.transaction(() => {
 	for (const row of cities) insert("cities", ["key", "name", "name_en", "name_pl"], [row.key, row.name, row.name_en, row.name_pl]);
 	const cityIds = ids("cities");
 	for (const row of clubs) insert("clubs", ["key", "name", "name_en", "name_pl", "city"], [row.key, row.name, row.name_en, row.name_pl, ref(cityIds, row.city, "city")]);
-	for (const row of competitions) insert("competitions", ["key", "city", "label", "label_en", "label_pl", "date_start", "date_end", "date_raw"], [row.key, ref(cityIds, row.city, "city"), row.label, row.label_en, row.label_pl, row.date_start, row.date_end, row.date_raw]);
+	for (const row of competitions) insert("competitions", ["key", "city", "label", "label_en", "label_pl", "date_start", "date_end", "date_raw", "source_url"], [row.key, ref(cityIds, row.city, "city"), row.label, row.label_en, row.label_pl, row.date_start, row.date_end, row.date_raw, row.source_url ?? null]);
 	for (const row of disciplines) insert("disciplines", ["key", "team_size"], [row.key, row.team_size]);
 
 	const athleteIds = ids("athletes");

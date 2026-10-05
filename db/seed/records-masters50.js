@@ -8,6 +8,7 @@ const team = (key, scope, discipline, competition, result_score, club, athletes,
 });
 
 export default [
+  ...['regional', 'national'].map(scope => team(`r_${scope}_50m_match_2026_224`, scope, 'team_match_50m_24', 'ukraine_cup_final_2026', 224, 'kharkivska', ['golovko_vadym', 'doroshenko_yuriy', 'sokolov_oleksandr'])),
   individual('r_national_m1_2023_1360', 'individual_fita_1440_m1', 'belgium_2023', 1360, 'kushniruk_sergiy', null, 'm1_european_short_distances'),
   individual('r_national_70m_unknown_333', 'individual_70m', null, 333, 'kushniruk_sergiy', null, 'm1_european_short_distances'),
   individual('r_national_60m_unknown_338', 'individual_60m', null, 338, 'kushniruk_sergiy', null, 'm1_european_short_distances'),

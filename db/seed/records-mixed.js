@@ -4,6 +4,7 @@ const team = (key, scope, category, discipline, competition, result_score, club,
 });
 
 export default [
+  team('r_national_juniors_mixed_2022_150', 'national', 'juniors', 'finals_50m_16', 'europe_juniors_2022', 150, 'ukraine', ['vdovenko_vitalii', 'khomutovska_olha'], null, 'outdoor'),
   team('r_regional_mixed_2x50_2012_1364', 'regional', 'mixed', 'team_elim_2x50m', 'ukraine_champ_2012', 1364, 'tshvsm', ['doroshenko_yuriy', 'diakova_viktoriia'], ['337,339', '347,341'], 'outdoor'),
   team('r_regional_mixed_m1_2012_2723', 'regional', 'mixed', 'team_elim_m1_2', 'golden_autumn_2012', 2723, 'kharkivska', ['diakova_viktoriia', 'golovko_vadym'], ['337,348,335,354', '328,333,340,348'], 'outdoor'),
   team('r_regional_mixed_finals_50m_2017_152', 'regional', 'mixed', 'finals_50m_16', 'ukraine_schools_champ_2017', 152, 'khnu_karazina', ['borisenko_olena', 'golovko_vadym'], null, 'outdoor'),

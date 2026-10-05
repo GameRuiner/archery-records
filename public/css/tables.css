@@ -67,7 +67,8 @@ table {
       vertical-align: middle;
     }
 
-    .record-history-toggle {
+    .record-history-toggle,
+    .record-history-return {
       display: inline-flex;
       align-items: center;
       justify-content: center;
@@ -85,7 +86,9 @@ table {
     }
 
     .record-history-toggle:hover,
-    .record-history-toggle:focus-visible {
+    .record-history-toggle:focus-visible,
+    .record-history-return:hover,
+    .record-history-return:focus-visible {
       background: var(--color-gray-20);
     }
   
@@ -211,5 +214,46 @@ table p {
     display: block;
     width: auto;
     margin-block-end: var(--space-xs);
+  }
+}
+
+/* Preserve hidden rows when the mobile table becomes block cards. */
+.records-table tr[hidden] {
+  display: none;
+}
+
+/* History belongs to the current record's tbody, with a shared accent edge. */
+.records-table tr[data-record-history-row] {
+  background: var(--color-gray-20);
+}
+
+.records-table tr[data-record-history-row] > td:first-child {
+  border-inline-start: 3px solid var(--text-color-link);
+}
+
+.records-table .record-history-heading > td {
+  padding: 0.45rem 0.75rem;
+  color: var(--text-color);
+  font-size: 0.85rem;
+  font-weight: 700;
+}
+
+@media (max-width: 44rem) {
+  .records-table tr[data-record-history-row] {
+    margin-inline-start: var(--space-s);
+    border-inline-start: 3px solid var(--text-color-link);
+  }
+
+  .records-table tr[data-record-history-row] > td:first-child {
+    border-inline-start: 0;
+  }
+
+  .records-table .record-history-heading > td {
+    min-height: 0;
+    padding: var(--space-xs) 0;
+  }
+
+  .records-table .record-history-heading > td::before {
+    display: none;
   }
 }

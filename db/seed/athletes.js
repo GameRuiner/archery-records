@@ -1,10 +1,11 @@
 export default [
+  { key: 'sova_anton', first_name: 'Антон', surname: 'Сова', first_name_latin: 'Anton', surname_latin: 'Sova' },
   { key: 'golovko_vadym', first_name: 'Вадим', surname: 'Головко', first_name_latin: 'Vadym', surname_latin: 'Golovko' },
   { key: 'komarov_oleksandr', first_name: 'Олександр', surname: 'Комаров', first_name_latin: 'Oleksandr', surname_latin: 'Komarov' },
   { key: 'tkach_oleksandr', first_name: 'Олександр', surname: 'Ткач', first_name_latin: 'Oleksandr', surname_latin: 'Tkach' },
   { key: 'sokolov_oleksandr', first_name: 'Олександр', surname: 'Соколов', first_name_latin: 'Oleksandr', surname_latin: 'Sokolov' },
   { key: 'mylchenko_mykyta', first_name: 'Микита', surname: 'Мильченко', first_name_latin: 'Mykyta', surname_latin: 'Mylchenko' },
-  { key: 'lvovskyi_dmytro', first_name: 'Дмитро', surname: 'Львовський', first_name_latin: 'Dmytro', surname_latin: 'Lvovskyi' },
+  { key: 'lvovskyi_dmytro', first_name: 'Дмитро', surname: 'Львовський', first_name_latin: 'Dmytro', surname_latin: 'Lvovskyy' },
   { key: 'yaremenkovych_oleksandr', first_name: 'Олександр', surname: 'Яременко', first_name_latin: 'Oleksandr', surname_latin: 'Yaremenkovych' },
   { key: 'pymonenko_myhaylo', first_name: 'Михайло', surname: 'Пимоненко', first_name_latin: 'Mykhaylo', surname_latin: 'Pymonenko' },
   { key: 'kardash_igor', first_name: 'Ігор', surname: 'Кардаш', first_name_latin: 'Igor', surname_latin: 'Kardash' },

@@ -1,4 +1,15 @@
 export default [
+  ...['men', 'juniors'].map(category => ({
+    key: `r_national_${category}_finals_50m_2023_149`, scope: 'national', category, format: 'outdoor',
+    discipline: 'finals_50m_15', competition: 'ukraine_champ_2023_outdoor', result_score: 149,
+    // Event entry: https://www.ianseo.net/TourData/2023/15224/ENE.php (KIY — м. Київ)
+    participants: [{ athlete: 'vdovenko_vitalii', club: 'kyiv', position: 1 }],
+  })),
+  {
+    key: 'r_national_men_match_50m_2026_235', scope: 'national', category: 'men', format: 'outdoor',
+    discipline: 'team_match_50m_24', competition: 'ukraine_cup_final_2026', result_score: 235,
+    participants: ['vdovenko_vitalii', 'lvovskyi_dmytro', 'sova_anton'].map((athlete, i) => ({ athlete, club: 'kyiv', position: i + 1 })),
+  },
   {
     key: 'r_kharkiv_m3x4_2012', scope: 'regional', category: 'men', format: 'indoor',
     discipline: 'team_elim_m3x4', competition: 'bukovina_cup_2012', result_score: 3396,

@@ -1,4 +1,7 @@
 export default [
+  { key: 'europe_juniors_2022', city: 'lilleshall', label: 'Молодіжний чемпіонат Європи', label_en: 'European Youth Championships', label_pl: 'Młodzieżowe Mistrzostwa Europy', date_start: '2022-08-15', date_end: '2022-08-20', date_raw: '15-20.08.2022', source_url: 'https://www.ianseo.net/Details.php?toId=11555' },
+  { key: 'ukraine_champ_2023_outdoor', city: 'lviv', label: 'Чемпіонат України серед дорослих', label_en: 'Ukrainian Senior Championship', label_pl: 'Mistrzostwa Ukrainy seniorów', date_start: '2023-09-20', date_end: '2023-09-24', date_raw: '20-24.09.2023', source_url: 'https://www.ianseo.net/Details.php?toId=15224' },
+  { key: 'ukraine_cup_final_2026', city: 'chernivtsi', label: 'Фінал Кубку України', label_en: 'Ukrainian Cup Final', label_pl: 'Finał Pucharu Ukrainy', date_start: '2026-10-02', date_end: '2026-10-05', date_raw: '2-5.10.2026' },
   { key: 'bukovina_cup_2012', city: 'chernivtsi', label: 'Кубок Буковини', label_en: 'Bukovina Cup', label_pl: 'Puchar Bukowiny', date_start: '2012-02-21', date_end: '2012-02-26', date_raw: '21-26.02.2012' },
   { key: 'ruban_cup_2018', city: 'kharkiv', label: 'Кубок Рубана', label_en: 'Ruban Cup', label_pl: 'Puchar Rubana', date_start: '2018-02-08', date_end: '2018-02-11', date_raw: '08-11.02.2018' },
   { key: 'ukraine_cup_2010', city: 'lviv', label: 'Кубок України', label_en: 'Ukraine Cup', label_pl: 'Puchar Ukrainy', date_start: '2010-12-01', date_end: '2010-12-05', date_raw: '01-05.12.2010' },
@@ -7,7 +10,7 @@ export default [
   { key: 'belgium_2023', city: 'ingelmunster', label: 'Бельгія', label_en: 'Belgium', label_pl: 'Belgia', date_start: null, date_end: null, date_raw: '?.2023' },
   { key: 'golden_autumn_2012', city: 'lviv', label: 'Золота осінь', label_en: 'Golden Autumn', label_pl: 'Złota Jesień', date_start: '2012-09-09', date_end: '2012-09-15', date_raw: '9-15.09.2012' },
   { key: 'kokota_cup_2012', city: 'lviv', label: 'Кубок Кокота', label_en: 'Kokota Cup', label_pl: 'Puchar Kokota', date_start: '2012-06-26', date_end: '2012-06-30', date_raw: '26-30.06.2012' },
-  { key: 'kokota_cup_2023', city: 'lviv', label: 'Кубок Кокота', label_en: 'Kokota Cup', label_pl: 'Puchar Kokota', date_start: '2023-06-26', date_end: '2023-06-30', date_raw: '26-30.06.2023' },
+  { key: 'kokota_cup_2023', city: 'lviv', label: 'Кубок Кокота', label_en: 'Kokota Cup', label_pl: 'Puchar Kokota', date_start: '2023-06-26', date_end: '2023-06-30', date_raw: '26-30.06.2023', source_url: 'https://www.ianseo.net/Details.php?toId=14542' },
   { key: 'germany_2022', city: 'munich', label: 'Німеччина', label_en: 'Germany', label_pl: 'Niemcy', date_start: '2022-07-06', date_end: '2022-07-06', date_raw: '06.07.2022' },
   { key: 'ukraine_champ_2012', city: 'lviv', label: 'Чемпіонат України', label_en: 'Ukrainian Championship', label_pl: 'Mistrzostwa Ukrainy', date_start: '2012-07-26', date_end: '2012-07-29', date_raw: '26-29.07.2012' },
   { key: 'kokota_memorial_2011', city: 'lviv', label: 'Турнір пам’яті ЗТУ Б. Кокота', label_en: 'B. Kokota Memorial Tournament', label_pl: 'Turniej pamięci B. Kokoty', date_start: '2011-06-22', date_end: '2011-06-26', date_raw: '22-26.06.2011' },

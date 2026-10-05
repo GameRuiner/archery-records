@@ -53,7 +53,8 @@ CREATE TABLE competitions (
   label_en    TEXT,
   date_start  TEXT,        -- ISO date (YYYY-MM-DD), nullable
   date_end    TEXT,        -- ISO date (YYYY-MM-DD), nullable
-  date_raw    TEXT NOT NULL -- original string, always kept as fallback
+  date_raw    TEXT NOT NULL, -- original string, always kept as fallback
+  source_url  TEXT           -- verified official competition/results page
 );
 
 CREATE TABLE disciplines (

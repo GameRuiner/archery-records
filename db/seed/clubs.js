@@ -1,4 +1,5 @@
 export default [
+  { key: 'kyiv', name: 'м. Київ', name_en: 'Kyiv', name_pl: 'Kijów', city: 'kyiv' },
   { key: 'kharkivska', name: 'Харківська', name_en: 'Kharkiv', name_pl: 'Charków', city: 'kharkiv' },
   { key: 'ukraine', name: 'Україна', name_en: 'Ukraine', name_pl: 'Ukraina' },
   { key: 'dynamo', name: 'Динамо', name_en: 'Dynamo', name_pl: 'Dynamo' },

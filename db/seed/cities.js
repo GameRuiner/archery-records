@@ -1,4 +1,5 @@
 export default [
+  { key: 'lilleshall', name: 'Ліллесхол', name_en: 'Lilleshall', name_pl: 'Lilleshall' },
   { key: 'chernivtsi', name: 'Чернівці', name_en: 'Chernivtsi', name_pl: 'Czerniowce' },
   { key: 'kharkiv', name: 'Харків', name_en: 'Kharkiv', name_pl: 'Charków' },
   { key: 'lviv', name: 'Львів', name_en: 'Lviv', name_pl: 'Lwów' },
