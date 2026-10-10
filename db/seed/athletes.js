@@ -13,7 +13,7 @@ export default [
   { key: 'krasylnykov_oleh', first_name: 'Олег', surname: 'Красильников', first_name_latin: 'Oleg', surname_latin: 'Krasylnykov' },
   { key: 'volnenko_taras', first_name: 'Тарас', surname: 'Волненко', first_name_latin: 'Taras', surname_latin: 'Volnenko' },
   { key: 'danyliuk_myhaylo', first_name: 'Михайло', surname: 'Данилюк', first_name_latin: 'Mykhaylo', surname_latin: 'Danyliuk' },
-  { key: 'kushniruk_sergiy', first_name: 'Сергій', surname: 'Кушнірук', first_name_latin: 'Sergiy', surname_latin: 'Kushnirul' },
+  { key: 'kushniruk_sergiy', first_name: 'Сергій', surname: 'Кушнірук', first_name_latin: 'Serhiy', surname_latin: 'Kushniruk' },
   { key: 'turunin_petro', first_name: 'Петро', surname: 'Турунін', first_name_latin: 'Petro', surname_latin: 'Turunin' },
   { key: 'doroshenko_yuriy', first_name: 'Юрій', surname: 'Дорошенко', first_name_latin: 'Yuriy', surname_latin: 'Doroshenko' },
   { key: 'sigauskas_vladas', first_name: 'Владас', surname: 'Сигаускас', first_name_latin: 'Vladas', surname_latin: 'Sigauskas' },
