@@ -12,15 +12,16 @@ if (themeToggle) {
     document.documentElement.dataset.theme = theme;
     const isDark = theme === 'dark';
     themeToggle.setAttribute('aria-pressed', isDark);
-    themeToggle.setAttribute('aria-label', isDark ? labels.dark : labels.light);
-    label.textContent = isDark ? labels.dark : labels.light;
+    themeToggle.setAttribute('aria-label', isDark ? labels.light : labels.dark);
+    label.textContent = isDark ? labels.light : labels.dark;
     icon.textContent = isDark ? '☀' : '☾';
   }
 
-  updateTheme(document.documentElement.dataset.theme || 'light');
+  updateTheme(document.documentElement.dataset.theme ||
+    (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'));
   themeToggle.addEventListener('click', () => {
     const nextTheme = document.documentElement.dataset.theme === 'dark' ? 'light' : 'dark';
-    localStorage.setItem('theme', nextTheme);
     updateTheme(nextTheme);
+    try { localStorage.setItem('theme', nextTheme); } catch {}
   });
 }
