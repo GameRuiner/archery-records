@@ -23,7 +23,10 @@ CREATE TABLE athletes (
   first_name TEXT NOT NULL,
   surname TEXT NOT NULL,
   first_name_latin TEXT NOT NULL,
-  surname_latin TEXT NOT NULL
+  surname_latin TEXT NOT NULL,
+  birth_date TEXT, -- ISO date (YYYY-MM-DD), only when the full date is sourced
+  birth_year INTEGER, -- fallback when a source gives only the year
+  birth_source_url TEXT -- public sports source for the recorded date/year
 );
 
 CREATE TABLE cities (

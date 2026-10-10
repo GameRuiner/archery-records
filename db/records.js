@@ -30,7 +30,7 @@ export default function () {
   `).all();
 
   const participantStmt = db.prepare(`
-        SELECT rp.position, rp.leg_scores,
+        SELECT rp.position, rp.leg_scores, a.birth_date, a.birth_year,
           a.first_name || ' ' || a.surname AS athlete_name,
           a.first_name_latin || ' ' || a.surname_latin AS athlete_name_latin,
           cl.name AS club_name, cl.name_en AS club_name_en, cl.name_pl AS club_name_pl

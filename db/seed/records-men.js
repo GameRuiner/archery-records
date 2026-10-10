@@ -24,7 +24,7 @@ export default [
     discipline: 'team_elim_m3x4', competition: 'ukraine_cup_2010', result_score: 3476,
     participants: [
       { athlete: 'lvovskyi_dmytro', club: 'sb_kyiv', position: 1, leg_scores: '296,291,295,289' },
-      { athlete: 'yaremenkovych_oleksandr', club: 'sb_kyiv', position: 2, leg_scores: '290,290,286,292' },
+      { athlete: 'yaremenko_oleksandr', club: 'sb_kyiv', position: 2, leg_scores: '290,290,286,292' },
       { athlete: 'pymonenko_myhaylo', club: 'sb_kyiv', position: 3, leg_scores: '288,279,288,292' },
     ],
   },

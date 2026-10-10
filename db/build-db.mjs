@@ -52,7 +52,7 @@ const ref = (map, key, label) => {
 };
 
 db.transaction(() => {
-	for (const row of athletes) insert("athletes", ["key", "first_name", "surname", "first_name_latin", "surname_latin"], [row.key, row.first_name, row.surname, row.first_name_latin, row.surname_latin]);
+	for (const row of athletes) insert("athletes", ["key", "first_name", "surname", "first_name_latin", "surname_latin", "birth_date", "birth_year", "birth_source_url"], [row.key, row.first_name, row.surname, row.first_name_latin, row.surname_latin, row.birth_date ?? null, row.birth_year ?? null, row.birth_source_url ?? null]);
 	for (const row of cities) insert("cities", ["key", "name", "name_en", "name_pl"], [row.key, row.name, row.name_en, row.name_pl]);
 	const cityIds = ids("cities");
 	for (const row of clubs) insert("clubs", ["key", "name", "name_en", "name_pl", "city"], [row.key, row.name, row.name_en, row.name_pl, ref(cityIds, row.city, "city")]);
