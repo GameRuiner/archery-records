@@ -98,10 +98,6 @@ table {
     font-weight: bold;
   }
   
-  /* Add hover effect on table rows */
-  tr:hover {
-    background-color: var(--color-gray-20);
-  }
 
 table p {
     line-height: 1;

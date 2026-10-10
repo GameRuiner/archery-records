@@ -1,3 +1,2 @@
-- outline previous records
 - extend and restructure database 
 - check data
