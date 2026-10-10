@@ -15,4 +15,5 @@ export default [
   { key: 'sdyushor_elektron', name: 'СДЮШОР «Електрон»', name_en: 'Elektron Children and Youth Olympic Reserve Sports School', name_pl: 'Szkoła Rezerwy Olimpijskiej Elektron' },
   { key: 'ukraine_kdyush', name: '«Україна», КДЮСШ', name_en: 'Ukraine, Children and Youth Sports School', name_pl: 'Ukraina, szkoła sportowa' },
   { key: 'zhytomyrska', name: 'Житомирська', name_en: 'Zhytomyr', name_pl: 'Żytomierz' },
+  { key: 'dyl', name: 'DYL', name_en: 'DYL', name_pl: 'DYL' },
 ];
