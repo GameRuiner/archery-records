@@ -1,5 +1,5 @@
 export default [
-  ...['men', 'juniors'].map(category => ({
+  ...['men', 'juniors', 'cadets'].map(category => ({
     key: `r_national_${category}_finals_50m_2023_149`, scope: 'national', category, format: 'outdoor',
     discipline: 'finals_50m_15', competition: 'ukraine_champ_2023_outdoor', result_score: 149,
     // Event entry: https://www.ianseo.net/TourData/2023/15224/ENE.php (KIY — м. Київ)

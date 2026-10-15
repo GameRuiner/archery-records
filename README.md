@@ -95,6 +95,7 @@ See [agents.md](agents.md) for known quirks and project-specific patterns, inclu
 - CSS pipeline (no Tailwind build — all CSS is hand-written)
 - Language switcher component implementation
 - Dev server 404 locale handling
+- Age-category record validation and the project's record-display convention
 
 ## Deployment
 

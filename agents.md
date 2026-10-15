@@ -1,9 +1,10 @@
 # Agent Onboarding — archery-records
 
 This file captures project-specific quirks discovered while debugging the
-language switcher and 404 page. Read this before touching CSS, i18n, or
-the dev server config — several things here are **not** what they'd
-normally look like in a stock Eleventy setup.
+language switcher, 404 page, and age-category record data. Read this before
+touching CSS, i18n, the dev server config, or record seed data — several
+things here are **not** what they'd normally look like in a stock Eleventy
+setup.
 
 ## Stack
 
@@ -18,6 +19,42 @@ normally look like in a stock Eleventy setup.
 - **Base layout chain:** `layouts/home.njk` extends `layouts/base.njk`.
   `layouts/base.njk` bundles/inlines CSS via `@11ty/eleventy-plugin-bundle`
   (`eleventyConfig.addBundle('css', {hoist: true})`).
+
+## Age-category record validation
+
+Age classes use the competition year, not the athlete's exact age on the
+shooting date. For events governed by the World Archery rules, use the rule
+version in force for the event year. The [World Archery Book 2 version dated
+2022-09-01](https://extranet.worldarchery.sport/documents/index.php/Rules/Rule_Book_versions/2022-09-01/EN-Book2.pdf)
+is the reference for 2023 results (Articles 4.2.3–4.2.5):
+
+- **Cadets / Under 18:** eligible through the calendar year of the athlete's
+  17th birthday (`eventYear <= birthYear + 17`).
+- **Juniors / Under 21:** eligible through the calendar year of the athlete's
+  20th birthday (`eventYear <= birthYear + 20`).
+- **Masters 50+:** eligible starting in the calendar year of the athlete's
+  50th birthday (`eventYear >= birthYear + 50`).
+
+When assigning a record category:
+
+1. Verify the athlete's birth date or birth year from a cited source in
+   `db/seed/athletes.js`.
+2. Verify the competition year from `db/seed/competitions.js` and its source.
+   Since these age rules are calendar-year based, the event year is enough
+   even when the exact competition day is unavailable.
+3. For an age-category team record, every participant must meet the age
+   cutoff.
+4. Keep a performance in its men's/women's category and also include each
+   age category the athlete qualifies for. For example, the 2023 Vdovenko
+   149-point record is seeded for men, juniors, and cadets: he was born in
+   2006, and 2023 was the year of his 17th birthday.
+
+This is the project's record-display convention. World Archery Article
+4.2.2.1 says an athlete may compete in only one class at a competition, so a
+duplicate age-category record here does not mean the athlete competed in two
+classes or that a federation has officially ratified the record in both.
+Check the relevant national federation's record rules before describing a
+project entry as an officially recognized age-class record.
 
 ## ⚠️ CSS: there is no build pipeline
 

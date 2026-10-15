@@ -1,8 +1,12 @@
 ---
 title: Кадети
+layout: layouts/record.njk
+showFormatSwitcher: false
 eleventyNavigation:
   key: Кадети
   parent: Рекорди
 ---
 
-<h1>Буде зроблено</h1>
+{% set category = "cadets" %}
+{% set format = "outdoor" %}
+{% include "partials/records.njk" %}
