@@ -17,4 +17,7 @@ export default [
   team('r_regional_mixed50_finals_50m_2017_146', 'regional', 'masters50', 'finals_50m_16', 'ukraine_schools_champ_2017', 146, 'kharkivska', ['kursina_yuliia', 'sokolov_oleksandr'], null, 'outdoor'),
   team('r_national_mixed50_2x50_2017_1304', 'national', 'masters50', 'team_elim_2x50m', 'ukraine_schools_champ_2017', 1304, 'kharkivska', ['kursina_yuliia', 'sokolov_oleksandr'], ['318,320', '331,335'], 'outdoor'),
   team('r_national_mixed50_finals_50m_2017_146', 'national', 'masters50', 'finals_50m_16', 'ukraine_schools_champ_2017', 146, 'kharkivska', ['kursina_yuliia', 'sokolov_oleksandr'], null, 'outdoor'),
+  // User-provided scorecard: 50+ mixed pairs, 50 m finals (16 arrows), 147 points.
+  team('r_regional_mixed50_finals_50m_2024_147', 'regional', 'masters50', 'finals_50m_16', 'ukraine_cup_final_2024', 147, 'kharkivska', ['alshaieva_tetiana', 'sokolov_oleksandr'], null, 'outdoor'),
+  team('r_national_mixed50_finals_50m_2024_147', 'national', 'masters50', 'finals_50m_16', 'ukraine_cup_final_2024', 147, 'kharkivska', ['alshaieva_tetiana', 'sokolov_oleksandr'], null, 'outdoor'),
 ];
