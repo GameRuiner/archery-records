@@ -8,6 +8,7 @@ export default [
   { key: 'individual_50m', team_size: 1 },
   { key: 'individual_90m', team_size: 1 },
   { key: 'individual_30m', team_size: 1 },
+  { key: 'qualification_50m_144', team_size: 1 },
   { key: 'team_elim_50m', team_size: 3 },
   { key: 'team_match_50m_24', team_size: 3 },
   { key: 'team_elim_2x50m', team_size: 2 },

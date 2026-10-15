@@ -5,6 +5,13 @@ export default [
     // Event entry: https://www.ianseo.net/TourData/2023/15224/ENE.php (KIY — м. Київ)
     participants: [{ athlete: 'vdovenko_vitalii', club: 'kyiv', position: 1 }],
   })),
+  // Record note: 50 m qualification, 144 arrows; four 36-arrow series sum to 1376.
+  ...['men', 'juniors', 'cadets'].map(category => ({
+    key: `r_national_${category}_50m_qualification_2023_1376`, scope: 'national', category, format: 'outdoor',
+    discipline: 'qualification_50m_144', competition: 'ukraine_champ_2023_outdoor', result_score: 1376,
+    // Event entry: https://www.ianseo.net/TourData/2023/15224/ENE.php (KIY — м. Київ)
+    participants: [{ athlete: 'vdovenko_vitalii', club: 'kyiv', position: 1, leg_scores: '348,340,347,341' }],
+  })),
   {
     key: 'r_national_men_match_50m_2026_235', scope: 'national', category: 'men', format: 'outdoor',
     discipline: 'team_match_50m_24', competition: 'ukraine_cup_final_2026', result_score: 235,

@@ -16,6 +16,7 @@ export default {
       individual_50m: { ua: '50 м', en: '50 m', pl: '50 m' },
       individual_90m: { ua: '90 м', en: '90 m', pl: '90 m' },
       individual_30m: { ua: '30 м', en: '30 m', pl: '30 m' },
+      qualification_50m_144: { ua: 'Кваліфікація 50 м (144 стріли)', en: '50 m qualification (144 arrows)', pl: 'Kwalifikacje 50 m (144 strzały)' },
       team_elim_50m: { ua: 'Командний елімінаційний раунд 50 м', en: 'Team elimination 50 m', pl: 'Eliminacje drużynowe 50 m' },
       team_match_50m_24: { ua: 'Командний матч 50 м (24 стріли)', en: 'Team match 50 m (24 arrows)', pl: 'Mecz drużynowy 50 m (24 strzały)' }
       ,team_elim_2x50m: { ua: 'Командний елімінаційний раунд 2x50 м', en: 'Team elimination 2x50 m', pl: 'Eliminacje drużynowe 2x50 m' }
